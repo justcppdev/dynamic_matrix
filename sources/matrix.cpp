@@ -123,7 +123,10 @@ bool multiply( float ** lhs_elements,
     return true;
 }
 
-auto input( std::istream & stream, float ** & result_elements, unsigned int & result_rows, unsigned int & result_columns ) -> std::istream &
+auto input( std::istream & stream, 
+            float ** & result_elements, 
+            unsigned int & result_rows, 
+            unsigned int & result_columns ) -> std::istream &
 {
     float ** elements = nullptr;
     unsigned int rows = 0;
@@ -244,7 +247,10 @@ bool truncate( float ** lhs_elements,
     return true;
 }
 
-auto output( std::ostream & stream, float ** elements, unsigned int rows, unsigned int columns ) -> std::ostream &
+auto output( std::ostream & stream, 
+             float ** elements, 
+             unsigned int rows, 
+             unsigned int columns ) -> std::ostream &
 {
     bool success = true;
     for( unsigned int i = 0; i < rows && success; ++i ) {
