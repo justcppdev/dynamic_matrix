@@ -294,8 +294,9 @@ bool reverse( float ** lhs_elements,
     }
     
     bool reversible = true;
-    for( unsigned int j = 0; j < lhs_columns && !reversible; ++j ) {
+    for( unsigned int j = 0; j < lhs_columns && reversible; ++j ) {
         for( unsigned int i = 0; i < rows; ++i ) {
+
             auto expected = i == j ? 1.0f : 0.0f;
             auto element = elements[ i ][ j ];
             
@@ -303,7 +304,7 @@ bool reverse( float ** lhs_elements,
                 if( ( expected == 1.0f && element == 0.0f ) || expected == 0.0f ) {
                     bool found = false;
                     float multiplier = 0.0f;
-                    unsigned int k = 0;
+                    unsigned int k = j;
                     for( ; k < rows; ++k) {
                         if(  k != i && elements[ k ][ j ] != 0.0f ) {
                             multiplier = ( expected - element ) / elements[ k ][ j ];
